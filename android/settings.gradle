@@ -1,0 +1,3 @@
+rootProject.name = 'PUBGCorrent'
+
+include ':app'
