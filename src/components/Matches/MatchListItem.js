@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 const MatchListItem = ({ match, handler, time }) => {
   return (
     match.error !== undefined && !match.processed ?
-      <ListItem title={match.error}/> :
+      <Card><ListItem title={match.error}/></Card> :
       (<Card>
         <ListItem title={time} badge={{ value: match.info.place }} />
         <ListItem title={match.info.game}/>

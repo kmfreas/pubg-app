@@ -11,6 +11,7 @@ class MatchListContainer extends Component {
     navigation: PropTypes.object.isRequired,
     dispatch: PropTypes.func.isRequired,
     matches: PropTypes.object.isRequired,
+    collapsed: PropTypes.bool.isRequired,
   }
   componentDidMount = () => {
     this.setState({
@@ -48,6 +49,7 @@ class MatchListContainer extends Component {
     return (
       <Fragment>
         {
+          !this.props.collapsed &&
           Object.keys(this.props.matches).map((key) => {
             return <MatchListItem
               key={key}
