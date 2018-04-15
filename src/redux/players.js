@@ -10,6 +10,13 @@ function addPlayers(data) {
   };
 }
 
+function removePlayer(data) {
+  return {
+    type: PLAYER_REMOVE,
+    players: data,
+  };
+}
+
 export function handleAddPlayers(playername) {
   return (dispatch, getState) => {
     const requestedPlayers = [
@@ -38,6 +45,12 @@ export function handleAddPlayerStats(playername) {
   };
 }
 
+export function handleRemovePlayer(playername) {
+  return (dispatch, getState) => {
+    const { players: { [playername]: test2, ...newPlayers } } = getState();
+    dispatch(removePlayer(newPlayers));
+  };
+}
 
 export default function players(state = {}, action) {
   switch (action.type) {
@@ -48,8 +61,7 @@ export default function players(state = {}, action) {
       };
     case PLAYER_REMOVE:
       return {
-        ...state,
-        ...action.player,
+        ...action.players,
       };
     default:
       return state;

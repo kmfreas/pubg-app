@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { SearchBar, Button } from 'react-native-elements';
 import { View } from 'react-native';
 import PropTypes from 'prop-types';
@@ -25,13 +25,14 @@ class addPlayer extends Component {
   }
   render() {
     return (
-      <View>
+      <Fragment>
         <SearchBar autoCapitalize="none" onChangeText={this.textChange} onClear={this.clear} placeholder='Player Name' platform="ios" cancelButtonTitle="Cancel"/>
         <Button
           title="Search"
           onPress={this.submit}
+          containerStyle={{ margin: 15 }}
         />
-      </View>
+      </Fragment>
     );
   }
 }

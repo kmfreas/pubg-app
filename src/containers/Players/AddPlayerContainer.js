@@ -6,7 +6,6 @@ import { handleAddPlayers } from '~/redux/players';
 
 class AddPlayerContainer extends Component {
   static propTypes = {
-    players: PropTypes.object.isRequired,
     dispatch: PropTypes.func.isRequired,
   }
 
@@ -21,10 +20,5 @@ class AddPlayerContainer extends Component {
     );
   }
 }
-function mapStateToProps({ players }) {
-  return {
-    players,
-  };
-}
 
-export default connect(mapStateToProps)(AddPlayerContainer);
+export default connect()(AddPlayerContainer);
