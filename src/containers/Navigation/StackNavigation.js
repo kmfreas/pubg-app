@@ -2,6 +2,7 @@ import { StackNavigator, SwitchNavigator } from 'react-navigation';
 import HomeContainer from '~/containers/Home/HomeContainer';
 import AppLoadingContainer from '~/containers/AppLoading/AppLoadingContainer';
 import AddPlayerContainer from '~/containers/Players/AddPlayerContainer';
+import MatchContainer from '~/containers/Matches/MatchContainer';
 
 const AppStack = StackNavigator({
   Home: {
@@ -9,6 +10,9 @@ const AppStack = StackNavigator({
   },
   AddPlayer: {
     screen: AddPlayerContainer,
+  },
+  ViewMatch: {
+    screen: MatchContainer,
   },
 });
 

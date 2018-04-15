@@ -21,6 +21,7 @@ const trnApi = axios.create({
 });
 
 export function fetchPlayers(players) {
+  console.log(players.join(','));
   return pubgApi.get(`/players?filter[playerNames]=${players.join(',')}`);
 }
 

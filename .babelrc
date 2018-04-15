@@ -5,6 +5,7 @@
     "react-native-dotenv"
   ],
   "plugins": [
+    "transform-decorators-legacy",
     ["babel-plugin-root-import", {
       "rootPathSuffix": "src"
     }]

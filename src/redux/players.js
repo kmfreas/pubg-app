@@ -12,10 +12,13 @@ function addPlayers(data) {
 
 export function handleAddPlayers(playername) {
   return (dispatch, getState) => {
-    fetchPlayers([
+    const requestedPlayers = [
       ...Object.keys(getState().players),
-      playername,
-    ]).then((response) => {
+    ];
+    if (playername !== undefined) {
+      requestedPlayers.push(playername);
+    }
+    return fetchPlayers(requestedPlayers).then((response) => {
       const data = response.data.data.reduce((playerList, player) => {
         playerList[player.attributes.name] = player;
         return playerList;
