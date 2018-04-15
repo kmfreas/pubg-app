@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
+import { ImageBackground } from 'react-native';
 import PropTypes from 'prop-types';
 import HeaderButtons from 'react-navigation-header-buttons';
 import Icon from 'react-native-vector-icons/Ionicons';
 import PlayerListContainer from '~/containers/Players/PlayerListContainer';
+import BackgroundImage from '~/images/bg.jpg';
+import { colors } from '~/styles';
 
 class HomeContainer extends Component {
   static propTypes = {
@@ -11,8 +14,15 @@ class HomeContainer extends Component {
 
   static navigationOptions = ({ navigation }) => {
     return {
+      title: 'Players',
+      headerTitleStyle: {
+        color: 'white',
+      },
+      headerStyle: {
+        backgroundColor: colors.primary,
+      },
       headerRight: (
-        <HeaderButtons IconComponent={Icon} iconSize={23} color="blue">
+        <HeaderButtons IconComponent={Icon} iconSize={23} color="white">
           <HeaderButtons.Item
             title="add"
             iconName="ios-search"
@@ -25,7 +35,15 @@ class HomeContainer extends Component {
 
   render() {
     return (
-      <PlayerListContainer navigation={this.props.navigation} />
+      <ImageBackground source={BackgroundImage} style={{
+        backgroundColor: '#ccc',
+        flex: 1,
+        width: '100%',
+        height: '100%',
+        justifyContent: 'center',
+      }}>
+        <PlayerListContainer navigation={this.props.navigation} />
+      </ImageBackground>
     );
   }
 }

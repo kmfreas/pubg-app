@@ -4,6 +4,7 @@ import { ScrollView } from 'react-native';
 import { Card, ListItem } from 'react-native-elements';
 import convertString from '~/helpers/string_conversions';
 import moment from 'moment';
+import { colors } from '~/styles';
 
 const match = ({ match: thisMatch }) => {
   const { info: { stats } } = thisMatch;
@@ -15,7 +16,7 @@ const match = ({ match: thisMatch }) => {
             return <ListItem
               key={stat}
               title={convertString(stat)}
-              badge={{ value: stats[stat] }}
+              badge={{ value: stats[stat], containerStyle: { backgroundColor: colors.primary } }}
             />;
           })
         }

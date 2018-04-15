@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { SearchBar, Button } from 'react-native-elements';
 import { View } from 'react-native';
 import PropTypes from 'prop-types';
+import { colors } from '~/styles';
 
 class addPlayer extends Component {
   state = {
@@ -26,8 +27,9 @@ class addPlayer extends Component {
   render() {
     return (
       <Fragment>
-        <SearchBar autoCapitalize="none" onChangeText={this.textChange} onClear={this.clear} placeholder='Player Name' platform="ios" cancelButtonTitle="Cancel"/>
+        <SearchBar autoCapitalize="none" onChangeText={this.textChange} onClear={this.clear} placeholder='Player Name' platform="ios" cancelButtonTitle="Cancel" containerStyle={{ backgroundColor: 'rgba(0,0,0,0)' }} round={false} lightTheme={true}/>
         <Button
+          buttonStyle={{ backgroundColor: colors.primary }}
           title="Search"
           onPress={this.submit}
           containerStyle={{ margin: 15 }}

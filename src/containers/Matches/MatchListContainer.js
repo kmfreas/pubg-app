@@ -1,4 +1,5 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
+import { View } from 'react-native';
 import { connect } from 'react-redux';
 import MatchListItem from '~/components/Matches/MatchListItem';
 import PropTypes from 'prop-types';
@@ -47,7 +48,7 @@ class MatchListContainer extends Component {
   }
   render() {
     return (
-      <Fragment>
+      <View style={{ marginBottom: 15 }}>
         {
           !this.props.collapsed &&
           Object.keys(this.props.matches).map((key) => {
@@ -59,7 +60,7 @@ class MatchListContainer extends Component {
             />;
           })
         }
-      </Fragment>
+      </View>
     );
   }
 }
