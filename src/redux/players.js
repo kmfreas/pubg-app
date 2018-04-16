@@ -1,4 +1,5 @@
 import { fetchPlayers, fetchPlayerStats } from '~/api/pubg';
+import { handleRemoveMatchesForPlayer } from '~/redux/matches';
 
 const ADD_PLAYERS = 'ADD_PLAYERS';
 const PLAYER_REMOVE = 'PLAYER_REMOVE';
@@ -47,8 +48,9 @@ export function handleAddPlayerStats(playername) {
 
 export function handleRemovePlayer(playername) {
   return (dispatch, getState) => {
-    const { players: { [playername]: test2, ...newPlayers } } = getState();
+    const { players: { [playername]: player, ...newPlayers } } = getState();
     dispatch(removePlayer(newPlayers));
+    dispatch(handleRemoveMatchesForPlayer(playername));
   };
 }
 

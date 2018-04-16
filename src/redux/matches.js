@@ -14,6 +14,13 @@ function addMatch({ match, playerName }) {
   };
 }
 
+function removeMatches(data) {
+  return {
+    type: REMOVE_MATCH,
+    matches: data,
+  };
+}
+
 function matchProcessed({ match, playerName }) {
   return {
     type: MATCH_PROCESSED,
@@ -74,6 +81,13 @@ export function handleAddMatch(matchId, playerName) {
   };
 }
 
+export function handleRemoveMatchesForPlayer(playerName) {
+  return (dispatch, getState) => {
+    const { matches: { [playerName]: player, ...newMatches } } = getState();
+    dispatch(removeMatches(newMatches));
+  };
+}
+
 export default function matches(state = {}, action) {
   switch (action.type) {
     case ADD_MATCH:
@@ -86,8 +100,7 @@ export default function matches(state = {}, action) {
       };
     case REMOVE_MATCH:
       return {
-        ...state,
-        ...action.match,
+        ...action.matches,
       };
     case MATCH_PROCESSED:
       return {
