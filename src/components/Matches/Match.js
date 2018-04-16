@@ -1,27 +1,35 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ScrollView } from 'react-native';
+import { ScrollView, ImageBackground } from 'react-native';
 import { Card, ListItem } from 'react-native-elements';
 import convertString from '~/helpers/string_conversions';
-import moment from 'moment';
-import { colors } from '~/styles';
+import styles, { colors } from '~/styles';
+import Miramar from '~/images/miramar.jpg';
+import Erangel from '~/images/erangel.jpg';
 
 const match = ({ match: thisMatch }) => {
   const { info: { stats } } = thisMatch;
+  const images = {
+    Miramar,
+    Erangel,
+  };
+  const BackgroundImage = images[thisMatch.info.map];
   return (
-    <ScrollView>
-      <Card title={moment(thisMatch.attributes.createdAt).fromNow()}>
-        {
-          Object.keys(stats).map((stat) => {
-            return <ListItem
-              key={stat}
-              title={convertString(stat)}
-              badge={{ value: stats[stat], containerStyle: { backgroundColor: colors.primary } }}
-            />;
-          })
-        }
-      </Card>
-    </ScrollView>
+    <ImageBackground source={BackgroundImage} style={styles.backgroundImage}>
+      <ScrollView>
+        <Card containerStyle={{ marginBottom: 15 }}>
+          {
+            Object.keys(stats).map((stat) => {
+              return <ListItem
+                key={stat}
+                title={convertString(stat)}
+                badge={{ value: stats[stat], containerStyle: { backgroundColor: colors.primary } }}
+              />;
+            })
+          }
+        </Card>
+      </ScrollView>
+    </ImageBackground>
   );
 };
 

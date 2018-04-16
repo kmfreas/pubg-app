@@ -10,11 +10,11 @@ const PlayerListItemHeader = ({ name, handler, collapsed }) => {
       title={name}
       containerStyle={styles.listItem.header}
       titleStyle={{ color: 'white' }}
+      onPress={handler}
       rightElement={
         <Icon
           name={icon}
           type='ionicon'
-          onPress={handler}
           color={'white'}
           underlayColor={colors.primary}
         />

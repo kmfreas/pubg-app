@@ -20,6 +20,9 @@ const strings = {
   timeSurvived: 'Time Survived',
   walkDistance: 'Walk Distance',
   winPlace: 'Rank',
+  duo: 'Duo',
+  'duo-fpp': 'Duo FPP',
+  squad: 'Squad',
 };
 
 export default function convertString(string) {

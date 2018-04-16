@@ -3,13 +3,14 @@ import { withMappedNavigationProps } from 'react-navigation-props-mapper';
 import PropTypes from 'prop-types';
 import Match from '~/components/Matches/Match';
 import { colors } from '~/styles';
+import moment from 'moment';
 
 @withMappedNavigationProps()
 class MatchContainer extends Component {
   static propTypes = {
     match: PropTypes.object.isRequired,
   };
-  static navigationOptions = () => {
+  static navigationOptions = ({ navigation }) => {
     return {
       headerBackTitleStyle: {
         color: 'white',
@@ -18,6 +19,7 @@ class MatchContainer extends Component {
       headerStyle: {
         backgroundColor: colors.primary,
       },
+      headerTitle: moment(navigation.state.params.match.info.time).fromNow(),
     };
   }
   render() {

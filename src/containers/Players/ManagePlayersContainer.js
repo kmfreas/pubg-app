@@ -1,10 +1,10 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import AddPlayerContainer from '~/containers/Players/AddPlayerContainer';
 import PlayerManageItem from '~/components/Players/PlayerManageItem';
 import { handleRemovePlayer } from '~/redux/players';
-import { colors } from '~/styles';
+import styles, { colors } from '~/styles';
 import { Card } from 'react-native-elements';
 import { ImageBackground } from 'react-native';
 import BackgroundImage from '~/images/bg2.jpg';
@@ -30,13 +30,7 @@ class ManagePlayersContainer extends Component {
   }
   render() {
     return (
-      <ImageBackground source={BackgroundImage} style={{
-        backgroundColor: '#ccc',
-        flex: 1,
-        width: '100%',
-        height: '100%',
-        // justifyContent: 'center',
-      }}>
+      <ImageBackground source={BackgroundImage} style={styles.backgroundImage}>
         <AddPlayerContainer />
         <Card title='Players'>
           {

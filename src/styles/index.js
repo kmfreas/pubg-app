@@ -11,11 +11,17 @@ export default {
       marginLeft: 15,
       marginRight: 15,
       marginTop: 15,
+      marginBottom: 5,
       borderBottomWidth: 1,
       borderBottomColor: colors.primary_darken,
     },
     item: {
 
     },
+  },
+  backgroundImage: {
+    flex: 1,
+    width: '100%',
+    height: '100%',
   },
 };
