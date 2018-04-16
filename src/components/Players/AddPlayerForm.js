@@ -27,7 +27,16 @@ class addPlayer extends Component {
   render() {
     return (
       <Fragment>
-        <SearchBar autoCapitalize="none" onChangeText={this.textChange} onClear={this.clear} placeholder='Player Name' platform="ios" cancelButtonTitle="Cancel" containerStyle={{ backgroundColor: 'rgba(0,0,0,0)' }} round={false} lightTheme={true}/>
+        <SearchBar autoCapitalize='none'
+          onChangeText={this.textChange}
+          onClear={this.clear}
+          placeholder='Player Name'
+          cancelButtonTitle='Cancel'
+          containerStyle={{ backgroundColor: 'rgba(0,0,0,0)' }}
+          round={false}
+          lightTheme={true}
+          platform='ios'
+        />
         <Button
           buttonStyle={{ backgroundColor: colors.primary }}
           title="Search"

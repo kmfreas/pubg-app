@@ -12,8 +12,6 @@ export default {
       marginRight: 15,
       marginTop: 15,
       marginBottom: 5,
-      borderBottomWidth: 1,
-      borderBottomColor: colors.primary_darken,
     },
     item: {
 

@@ -5,7 +5,7 @@ import HeaderButtons from 'react-navigation-header-buttons';
 import Icon from 'react-native-vector-icons/Ionicons';
 import PlayerListContainer from '~/containers/Players/PlayerListContainer';
 import BackgroundImage from '~/images/bg.jpg';
-import { colors } from '~/styles';
+import styles, { colors } from '~/styles';
 
 class HomeContainer extends Component {
   static propTypes = {
@@ -35,13 +35,7 @@ class HomeContainer extends Component {
 
   render() {
     return (
-      <ImageBackground source={BackgroundImage} style={{
-        backgroundColor: '#ccc',
-        flex: 1,
-        width: '100%',
-        height: '100%',
-        justifyContent: 'center',
-      }}>
+      <ImageBackground source={BackgroundImage} style={styles.backgroundImage}>
         <PlayerListContainer navigation={this.props.navigation} />
       </ImageBackground>
     );
