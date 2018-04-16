@@ -1,4 +1,4 @@
-import { fetchPlayers, fetchPlayerStats } from '~/api/pubg';
+import { fetchPlayers } from '~/api/pubg';
 import { handleRemoveMatchesForPlayer } from '~/redux/matches';
 
 const ADD_PLAYERS = 'ADD_PLAYERS';
@@ -35,14 +35,6 @@ export function handleAddPlayers(playername) {
     }).catch((error) => {
       console.log(error, error.response);
     });
-  };
-}
-
-export function handleAddPlayerStats(playername) {
-  return (dispatch) => {
-    fetchPlayerStats(playername).then((response) => {
-      console.log(response);
-    }).catch(error => console.log(error, error.response));
   };
 }
 
