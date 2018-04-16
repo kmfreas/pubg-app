@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { View, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import MatchListItem from '~/components/Matches/MatchListItem';
 import PropTypes from 'prop-types';
@@ -46,20 +46,25 @@ class MatchListContainer extends Component {
       match: this.props.matches[key],
     });
   }
+  renderItem = ({ item: key }) => {
+    return <MatchListItem
+      key={key}
+      match={this.props.matches[key]}
+      handler={this.viewMatch}
+      time={this.state.times[key] || '...'}
+    />;
+  }
   render() {
     return (
       <View style={{ marginBottom: 15 }}>
-        {
-          !this.props.collapsed &&
-          Object.keys(this.props.matches).map((key) => {
-            return <MatchListItem
-              key={key}
-              match={this.props.matches[key]}
-              handler={this.viewMatch}
-              time={this.state.times[key] || '...'}
-            />;
-          })
-        }
+      {
+        !this.props.collapsed &&
+        <FlatList
+          data={Object.keys(this.props.matches)}
+          renderItem={this.renderItem}
+          keyExtractor={item => item}
+        />
+      }
       </View>
     );
   }
